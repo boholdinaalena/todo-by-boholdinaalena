@@ -23,10 +23,10 @@
           class="user-add__input"
           placeholder="Добавить новую задачу"
         />
-        <div class="user-add__btn btn">
+        <button class="user-add__btn btn">
           Добавить
           <img src="../src/assets/img/add.png" alt="add" class="btn__icon" />
-        </div>
+        </button>
       </div>
     </div>
     <div class="body">
@@ -36,7 +36,7 @@
           <div class="value__num">5</div>
         </div>
         <div id="completed" class="value">
-          <div class="value__text value__text__completed">Выполнено</div>
+          <div class="value__text completed">Выполнено</div>
           <div class="value__num">2 из 5</div>
         </div>
       </div>
@@ -75,7 +75,7 @@
         </div>
         <div class="task">
           <input type="checkbox" class="task__input" />
-          <div class="task__texxt task__text__strikeout">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я очень хорошо знаю целое число.</div>
+          <div class="task__text-strikeout">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я очень хорошо знаю целое число.</div>
           <img
             src="../src/assets/img/trash.png"
             alt="delete"
@@ -84,7 +84,7 @@
         </div>
         <div class="task">
           <input type="checkbox" class="task__input" />
-          <div class="task__text task__text__strikeout">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я очень хорошо знаю целое число.</div>
+          <div class="task__text-strikeout">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я очень хорошо знаю целое число.</div>
           <img
             src="../src/assets/img/trash.png"
             alt="delete"
@@ -96,70 +96,70 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+:root {
+  --main-bg-color: #191919;
+  --header-color: #0d0d0d;
+  --accent-color: #1e6f9f;
+  --check-color: #8284fa;
+
+  --width: 900px;
+  --radius: 10px;
+}
+
 @font-face {
   font-family: "Inter";
   src: url(../src/assets/fonts/Inter-4.0/Inter.ttc) format("truetype");
 }
-$mainColor: #1e6f9f;
-$secondColor: #262626;
-$bgColor: #191919;
-$headerColor: #0d0d0d;
-$stroke: #333333;
-$colorComleted: #8284fa;
-$width: 50%;
-$widthMob: 90%;
-$radius: 0.8vw;
-$radiusMob: 2vw;
-
 .vue {
   font-family: Inter;
-  background: $secondColor;
+  background: var(--main-bg-color);
+  font-size: 16pt;
 }
+
 .header {
-  height: 13vw;
-  background: $headerColor;
+  height: 200px;
+  background: var(--header-color);
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
-  .header__add {
+  &__add {
     position: absolute;
     display: block;
     z-index: 1;
-    top: 11vw;
+    top: 170px;
   }
 }
 
 .user-add {
-  width: $width;
+  width: var(--width);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1vw;
+  justify-content: space-between;
+  font-size: 12pt;
 
-  .user-add__input {
-    width: 38.5vw;
-    float: left;
-    border-radius: $radius;
+  &__input {
+    width: 733px;
+    padding-left: 15px;
+    border-radius: var(--radius);
     border: none;
-    height: 3.5vw;
-    background: $secondColor;
-    box-shadow: 0 0 0 0.08vw $headerColor;
+    height: 52px;
+    background: #262626;
+    box-shadow: 0 0 0 1px var(--header-color);
     color: #ffffff;
-    padding-left: 1vw;
   }
-  .user-add__btn {
-    display: inline-flex;
-    float: right;
-    height: 3.7vw;
-    width: 9vw;
+  &__btn {
+    display: flex;
+    height: 52px;
+    width: 140px;
   }
 }
 
 .body {
-  margin-top: 5vw;
+  margin-top: 80px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -167,113 +167,109 @@ $radiusMob: 2vw;
   flex-direction: column;
   flex-wrap: nowrap;
 
-  .body__info {
-    width: $width;
-  }
-  #created {
-    float: left;
-  }
-  #completed {
-    float: right;
+  &__info {
+    width: var(--width);
+    display: flex;
+    justify-content: space-between;
   }
 
-  .body__tasks {
-    width: $width;
-    margin-top: 1vw;
+  &__tasks {
+    width: var(--width);
+    margin-top: 30px;
   }
 }
 
 .title {
-  .title__logo {
-    width: 6%;
-    padding-right: 3%;
-    margin-bottom: -0.4vw;
+  &__logo {
+    width: 25px;
+    padding-right: 15px;
+    margin-bottom: -10px;
   }
-  .title__text {
-    width: 24%;
+  &__text {
+    width: 100px;
   }
 }
 
 .btn {
-  background: $mainColor;
+  background: var(--accent-color);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 0.9vw;
+  font-size: 12pt;
   color: #ffffff;
-  border-radius: $radius;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
 
-  .btn__icon {
-    width: 13%;
-    margin-left: 0.5vw;
+  &__icon {
+    width: 17px;
+    margin-left: 7px;
   }
 }
 
 .value {
   display: flex;
   font-weight: bold;
-  font-size: 0.9vw;
+  font-size: 16px;
 
-  .value__text {
-    color: $mainColor;
-    margin-right: 0.6vw;
-    margin-top: 0.3vw;
+  &__text {
+    color: var(--accent-color);
+    margin-right: 10px;
+    margin-top: 5px;
+
+    &.completed {
+      color: var(--check-color);
+    }
   }
 
-  .value__text__completed {
-    color: $colorComleted;
-  }
-  .value__num {
-    padding: 0.7vw;
-    padding-top: 0.2vw;
-    padding-bottom: 0.2vw;
+  &__num {
+    padding: 14px;
+    padding-top: 3px;
+    padding-bottom:3px;
     color: #ffffff;
-    background: $stroke;
-    border-radius: $radius;
+    background: #333333;
+    border-radius: 15px;
   }
 }
 
 .task {
-  margin-bottom: 1vw;
+  margin-bottom: 20px;
   display: flex;
-  font-size: 0.8vw;
-  background: $secondColor;
-  border-radius: $radius;
+  font-size: 12pt;
+  font-weight: 400;
+  border-radius: var(--radius);
   color: #ffffff;
-  padding: 1.5vw;
-  box-shadow: 0 0 0 0.08vw $stroke;
+  padding: 25px;
+  box-shadow: 0 0 0 2px #333333;
 
-  .task__input {
-    width: 1.7vw;
-    height: 1.4vw;
-    margin-top: -0.3vw;
-    margin-right: 1vw;
-    margin-left: -0.3vw;
-    background-color: $secondColor;
-    border-radius: 100vw;
+  &__input {
+    width: 30px;
+    height: 23px;
+    margin-right:20px;
+    border-radius: 100px;
     vertical-align: middle;
-    border: 0.15vw solid $mainColor;
+    border: 2.5px solid var(--accent-color);
     appearance: none;
-    -webkit-appearance: none;
     outline: none;
     cursor: pointer;
   }
 
-  .task__input:checked {
+  &__input:checked {
     background: url(../src/assets/img/check.png);
     background-position: center;
-    background-size: 2vw;
-    border-color: $colorComleted;
-}
-  .task__icon {
-    height: 0.9vw;
-    width: 0.95vw;
-    margin-left: 1vw;
+    background-size: 30px;
+    border-color: #585ABD;
   }
 
-  .task__text__strikeout {
-    text-decoration:line-through;
+  &__icon {
+    height: 20px;
+    width: 20px;
+    margin-left: 60px;
+  }
+
+  &__text-strikeout {
+    text-decoration: line-through;
     color: #808080;
   }
 }
