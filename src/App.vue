@@ -5,24 +5,12 @@
     <div class="header">
       <div class="header__title">
         <div class="title">
-          <img
-            src="../src/assets/img/logo.png"
-            alt="todo"
-            class="title__logo"
-          />
-          <img
-            src="../src/assets/img/todo.png"
-            alt="logo"
-            class="title__text"
-          />
+          <img src="../src/assets/img/logo.png" alt="todo" class="title__logo" />
+          <img src="../src/assets/img/todo.png" alt="logo" class="title__text" />
         </div>
       </div>
       <div class="header__add user-add">
-        <input
-          type="text"
-          class="user-add__input"
-          placeholder="Добавить новую задачу"
-        />
+        <input type="text" class="user-add__input" placeholder="Добавить новую задачу" />
         <button class="user-add__btn btn">
           Добавить
           <img src="../src/assets/img/add.png" alt="add" class="btn__icon" />
@@ -43,60 +31,67 @@
       <div class="body__tasks">
         <div class="task">
           <input type="checkbox" class="task__input" />
-          <div class="task__text">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я очень хорошо знаю целое число.</div>
-          <img
-            src="../src/assets/img/trash.png"
-            alt="delete"
-            class="task__icon"
-          />
+          <div class="task__text">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я
+            очень хорошо знаю целое число.</div>
+          <img src="../src/assets/img/trash.svg" alt="delete" class="task__icon" />
         </div>
         <div class="task">
           <input type="checkbox" class="task__input" />
-          <div class="task__text">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я очень хорошо знаю целое число.</div>
-          <img
-            src="../src/assets/img/trash.png"
-            alt="delete"
-            class="task__icon"
-          />
+          <div class="task__text">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я
+            очень хорошо знаю целое число.</div>
+          <img src="../src/assets/img/trash.svg" alt="delete" class="task__icon" />
         </div>
         <div class="task">
           <input type="checkbox" class="task__input" />
-          <div class="task__text">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я очень хорошо знаю целое число.</div>
-          <img src="../src/assets/img/trash.png" alt="" class="task__icon" />
+          <div class="task__text">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я
+            очень хорошо знаю целое число.</div>
+          <img src="../src/assets/img/trash.svg" alt="" class="task__icon" />
         </div>
         <div class="task">
           <input type="checkbox" class="task__input" />
-          <div class="task__text">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я очень хорошо знаю целое число.</div>
-          <img
-            src="../src/assets/img/trash.png"
-            alt="delete"
-            class="task__icon"
-          />
+          <div class="task__text">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я
+            очень хорошо знаю целое число.</div>
+          <img src="../src/assets/img/trash.svg" alt="delete" class="task__icon" />
         </div>
         <div class="task">
           <input type="checkbox" class="task__input" />
-          <div class="task__text-strikeout">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я очень хорошо знаю целое число.</div>
-          <img
-            src="../src/assets/img/trash.png"
-            alt="delete"
-            class="task__icon"
-          />
+          <div class="task__text-strikeout">Целое число - это промежуточная масса либеро, ауктор, который не терпит
+            отлагательств. Я очень хорошо знаю целое число.</div>
+          <img src="../src/assets/img/trash.svg" alt="delete" class="task__icon" />
         </div>
         <div class="task">
           <input type="checkbox" class="task__input" />
-          <div class="task__text-strikeout">Целое число - это промежуточная масса либеро, ауктор, который не терпит отлагательств. Я очень хорошо знаю целое число.</div>
-          <img
-            src="../src/assets/img/trash.png"
-            alt="delete"
-            class="task__icon"
-          />
+          <div class="task__text-strikeout">Целое число - это промежуточная масса либеро, ауктор, который не терпит
+            отлагательств. Я очень хорошо знаю целое число.</div>
+          <img src="../src/assets/img/trash.svg" alt="delete" class="task__icon" />
         </div>
       </div>
     </div>
   </div>
+
+  <div class="wrapper container">
+    <input class="input" type="text" />
+    <button class="btn">
+      Добавить
+    </button>
+  </div>
 </template>
 
 <style lang="scss">
+.wrapper {
+  display: flex;
+  gap: 20px
+}
+
+.input {
+  flex: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 :root {
   --main-bg-color: #191919;
@@ -112,6 +107,7 @@
   font-family: "Inter";
   src: url(../src/assets/fonts/Inter-4.0/Inter.ttc) format("truetype");
 }
+
 .vue {
   font-family: Inter;
   background: var(--main-bg-color);
@@ -150,7 +146,9 @@
     background: #262626;
     box-shadow: 0 0 0 1px var(--header-color);
     color: #ffffff;
+
   }
+
   &__btn {
     display: flex;
     height: 52px;
@@ -185,6 +183,7 @@
     padding-right: 15px;
     margin-bottom: -10px;
   }
+
   &__text {
     width: 100px;
   }
@@ -226,7 +225,7 @@
   &__num {
     padding: 14px;
     padding-top: 3px;
-    padding-bottom:3px;
+    padding-bottom: 3px;
     color: #ffffff;
     background: #333333;
     border-radius: 15px;
@@ -246,7 +245,7 @@
   &__input {
     width: 30px;
     height: 23px;
-    margin-right:20px;
+    margin-right: 20px;
     border-radius: 100px;
     vertical-align: middle;
     border: 2.5px solid var(--accent-color);
@@ -273,5 +272,4 @@
     color: #808080;
   }
 }
-
 </style>
