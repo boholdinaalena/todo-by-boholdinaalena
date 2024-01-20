@@ -86,7 +86,7 @@
 }
 
 .list {
-  height: 40vh;
+
   overflow: scroll;
 }
 
