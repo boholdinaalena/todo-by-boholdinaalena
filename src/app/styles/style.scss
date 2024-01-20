@@ -1,8 +1,10 @@
 body {
-
     background: #1A1A1A;
     color: #F2F2F2;
     font-size: 16px;
+    font-family: "Rubik Burned", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 input {
@@ -12,3 +14,5 @@ input {
 button {
     border: none;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Raleway:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Burned&display=swap')
