@@ -28,9 +28,11 @@
 
       <div class="list">
         <div class="list-item" v-for="item in 10">
-          <div class="list-round"></div>
-          item {{ item }}
-          <img src="./assets/trash.svg" alt="trash">
+          <div class="list-info">
+            <div class="item-round"></div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit maiores architecto dolores? {{ item }}
+          </div>
+          <img class="item-img" src="./assets/trash.svg" alt="trash">
         </div>
       </div>
     </div>
@@ -125,7 +127,6 @@
   background: #333;
   font-size: 12pt;
   color: #ffffff;
-  font-weight: 600;
   cursor: pointer;
 
   &__icon {
@@ -133,11 +134,18 @@
   }
 }
 
-.list-round {
+.list-info {
+  gap: 12px;
+  display: flex;
+  justify-content: left;
+}
+.item-round {
   width: 18px;
   height: 18px;
   border: 2px solid #1e6f9f;
   border-radius: 999px;
 }
-
+.item-img {
+  justify-content: end;
+}
 </style>
