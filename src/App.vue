@@ -148,7 +148,7 @@
     border: none;
     height: 52px;
     background: #262626;
-    box-shadow: 0 0 0 1px var(--header-color);
+    box-shadow: 0 0 0 1px var();
     color: #ffffff;
   }
   &__btn {
