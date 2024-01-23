@@ -23,10 +23,12 @@ export default {
   },
   methods: {
     addTask() {
+      if (this.task.length > 0) {
       let now = new Date();
       this.$emit("addTask", this.task, now);
       this.task = "";
       this.id++;
+      }
     },
   },
 };
