@@ -23,7 +23,8 @@ export default {
   },
   methods: {
     addTask() {
-      this.$emit("addTask", this.task, this.id);
+      let now = new Date();
+      this.$emit("addTask", this.task, now);
       this.task = "";
       this.id++;
     },
