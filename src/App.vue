@@ -6,61 +6,64 @@
       <div><span class="header-logo">TO</span>DO</div>
     </div>
 
-    <UserInput @addTask="addTask" @removeTask="removeTask" />
+    <div class="user-input">
+      <div class="body container">
+        <InputBase class="body-input" type="text" placeholder="Добавить новую задачу" v-model="title" />
+        <button class="body-btn" @click="handleClick">Создать</button>
+      </div>
+    </div>
 
     <div class="todo container">
       <div class="todo-header">
         <div class="todo-count">
           Созданные задачи
-          <div class="todo-num">{{ list.length }}</div>
+          <div class="todo-num">{{ todos.length }}</div>
         </div>
         <div class="todo-amount">
           Завершенно
-          <div class="todo-num">0 из {{ list.length }}</div>
+          <div class="todo-num">{{ finishedTodos }} из {{ todos.length }}</div>
         </div>
       </div>
       <div class="list">
-        <ListItem
-          v-for="(item, index) in list"
-          :key="item.id"
-          :item="item"
-          :index="index"
-          @removeTask="removeTask"
-          @addCompleteTask="addCompleteTask"
-          @removeCompleteTask="removeCompleteTask"
-        />
+        <ItemBase v-for="todo in todos" @delete="handleDelete" @choose="handleChoose" :todo="todo" :key="todo.id" />
       </div>
     </div>
   </div>
 </template>
-<script lang="js">
-import UserInput from './components/UserInput.vue';
-import ListItem from './components/ListItem.vue';
 
-export default {
-  name: 'wrapper',
-  components: {
-    UserInput,
-    ListItem
-  },
-  data() {
-    return {
-      list: [],
-    }
-  },
-  methods: {
-    addTask(task, id) {
-      this.list.unshift({text: task, id: id, check: false});
-    },
-    removeTask(index) {
-      this.list.splice(index, 1);
-    },
-    addCompleteTask(index) {
-      this.list[index].check = true;
-    },
-    removeCompleteTask(index) {
-      this.list[index].check = false;
-    },
-  }
+<script setup>
+import InputBase from './components/InputBase.vue'
+import ItemBase from './components/ItemBase.vue'
+import { ref, computed } from 'vue'
+
+const todos = ref([])
+const title = ref('')
+
+const handleClick = () => {
+  todos.value.push({
+    id: +new Date(),
+    title: title.value,
+    isActive: false
+  })
+
+  title.value = ''
+
+}
+
+const finishedTodos = computed(() => {
+  const result = [...todos.value]
+  return (result.filter(el => el.isActive)).length
+})
+
+
+const handleDelete = (id) => {
+  todos.value = todos.value.filter(el => el.id !== id)
+}
+const handleChoose = (id) => {
+  const todo = todos.value.find(el => el.id === id)
+  todo.isActive = !todo.isActive
 }
 </script>
+
+
+<style scoped lang="scss"></style>
