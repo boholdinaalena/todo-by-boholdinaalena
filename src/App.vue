@@ -5,187 +5,62 @@
 
       <div><span class="header-logo">TO</span>DO</div>
     </div>
-    <div class="body container">
-      <input
-        class="body-input"
-        type="text"
-        placeholder="Добавить новую задачу"
-      />
-      <button class="body-btn">Создать</button>
-    </div>
+
+    <UserInput @addTask="addTask" @removeTask="removeTask" />
 
     <div class="todo container">
       <div class="todo-header">
         <div class="todo-count">
           Созданные задачи
-          <div class="todo-num">10</div>
+          <div class="todo-num">{{ list.length }}</div>
         </div>
         <div class="todo-amount">
           Завершенно
-          <div class="todo-num">2 из 10</div>
+          <div class="todo-num">0 из {{ list.length }}</div>
         </div>
       </div>
-
       <div class="list">
-        <div class="list-item" v-for="item in 10">
-          <div class="list-info">
-            <div class="item-round"></div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit maiores architecto dolores? {{ item }}
-          </div>
-          <img class="item-img" src="./assets/trash.svg" alt="trash">
-        </div>
+        <ListItem
+          v-for="(item, index) in list"
+          :key="item.id"
+          :item="item"
+          :index="index"
+          @removeTask="removeTask"
+          @addCompleteTask="addCompleteTask"
+          @removeCompleteTask="removeCompleteTask"
+        />
       </div>
     </div>
   </div>
 </template>
+<script lang="js">
+import UserInput from './components/UserInput.vue';
+import ListItem from './components/ListItem.vue';
 
-<style lang="scss" scoped>
-.container {
-  max-width: 736px;
-  margin: 0 auto;
-}
-
-.header {
-  background: #0d0d0d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  color: #5e60ce;
-  font-size: 40px;
-  font-weight: 900;
-  padding: 72px 0;
-}
-
-.header-logo {
-  color: #4ea8de;
-}
-
-.body {
-  display: flex;
-  align-items: stretch;
-  gap: 8px;
-  transform: translateY(-50%);
-}
-
-.body-input {
-  flex: 1;
-  background: #262626;
-  padding: 16px;
-  color: #ffffff;
-  border-radius: 10px;
-  border: none;
-
-  &::placeholder {
-    color: #808080;
+export default {
+  name: 'wrapper',
+  components: {
+    UserInput,
+    ListItem
+  },
+  data() {
+    return {
+      list: [],
+    }
+  },
+  methods: {
+    addTask(task, id) {
+      this.list.unshift({text: task, id: id, check: false});
+    },
+    removeTask(index) {
+      this.list.splice(index, 1);
+    },
+    addCompleteTask(index) {
+      this.list[index].check = true;
+    },
+    removeCompleteTask(index) {
+      this.list[index].check = false;
+    },
   }
 }
-
-.body-btn {
-  background: #1e6f9f;
-  border-radius: 8px;
-  padding: 16px;
-  color: #fff;
-  font-weight: 700;
-  line-height: 140%;
-}
-
-.todo-header {
-  display: flex;
-  justify-content: space-between;
-  color: #5e60ce;
-}
-
-.todo-count,
-.todo-amount {
-  display: flex;
-  gap: 8px;
-  font-weight: 700;
-}
-
-.todo-count {
-  color: #4ea8de;
-}
-
-.todo-num {
-  color: #d9d9d9;
-  padding: 2px 8px;
-  background: #333;
-  border-radius: 999px;
-}
-
-.todo {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.list-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  border: 3px solid #333;
-  padding: 16px;
-  background: #333;
-  font-size: 12pt;
-  color: #ffffff;
-  cursor: pointer;
-
-  &__icon {
-    width: 17px;
-  }
-}
-
-.list-info {
-  gap: 12px;
-  display: flex;
-  justify-content: left;
-}
-.item-round {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #1e6f9f;
-  border-radius: 999px;
-}
-.item-img {
-  justify-content: end;
-}
-
-@media (max-width: 860px) {
-  .container {
-    margin: auto 20px;
-  }
-}
-
-@media (max-width: 510px) {
-  .header {
-    font-size: 30px;
-  }
-
-  .todo-header {
-    font-size: 10pt;
-  }
-
-  .list-item {
-    font-size: 10pt;
-  }
-
-}
-
-@media (max-width: 440px) {
-  .body {
-    flex-direction: column;
-    transform: translate(0);
-    margin-bottom: 30px;
-  }
-  .todo-header {
-    align-items: center;
-    flex-direction: column;
-    row-gap: 5px;
-  }
-
-}
-</style>
+</script>
