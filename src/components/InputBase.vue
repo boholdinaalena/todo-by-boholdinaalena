@@ -1,5 +1,5 @@
 <template>
-    <input v-model="test" class="body-input" type="text" placeholder="Добавить новую задачу" />
+    <input v-model="test" class="body-input" type="text" v-bind="$attrs" />
 </template>
 
 

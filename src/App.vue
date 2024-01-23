@@ -8,7 +8,8 @@
 
     <div class="user-input">
       <div class="body container">
-        <InputBase class="body-input" type="text" placeholder="Добавить новую задачу" v-model="title" />
+        <InputBase class="body-input" @keyup.enter="handleClick" type="text" placeholder="Добавить новую задачу"
+          v-model="title" />
         <button class="body-btn" @click="handleClick">Создать</button>
       </div>
     </div>
@@ -25,7 +26,8 @@
         </div>
       </div>
       <div class="list">
-        <ItemBase v-for="todo in todos" @delete="handleDelete" @choose="handleChoose" :todo="todo" :key="todo.id" />
+        <ItemBase placeholder="Добавить новую задачу" v-for="todo in todos" @delete="handleDelete" @choose="handleChoose"
+          :todo="todo" :key="todo.id" />
       </div>
     </div>
   </div>
@@ -51,7 +53,7 @@ const handleClick = () => {
 }
 
 const finishedTodos = computed(() => {
-  const result = [...todos.value]
+  const result = todos.value
   return (result.filter(el => el.isActive)).length
 })
 
