@@ -120,12 +120,12 @@ button {
     display: flex;
     justify-content: left;
 
-    input:checked + span {
+    .item-active + span {
       color: #808080;
       text-decoration: line-through;
     }
   }
-  .item-round {
+  .item-round, .item-active {
     appearance: none;
     flex-shrink: 0;
     width: 18px;
@@ -133,12 +133,12 @@ button {
     border: 2px solid #1e6f9f;
     border-radius: 999px;
     cursor: pointer;
+  }
 
-    &:checked {
-        background: url(../../assets/check.svg);
-        background-position: center;
-        border-color: #5e60ce;
-    }
+  .item-active {
+    background: url(../../assets/check.svg);
+    background-position: center;
+    border-color: #5e60ce;
   }
   
 

@@ -47,20 +47,25 @@ const handleClick = () => {
     title: title.value,
     isActive: false
   })
-
+  //Обновляем значение в дочернеи компоненте InputBase
   title.value = ''
 
 }
 
+//Вычисляемое свойство автоматически отслеживает свои реактивные зависимости. 
+//Vue знает, что вычисление fineshedTodos зависит от todos, 
+//поэтому при любых изменениях в todos vue "пересчитает" значение  finishedTodos.
 const finishedTodos = computed(() => {
   const result = todos.value
   return (result.filter(el => el.isActive)).length
 })
 
-
+//Перезаписываем значение todos новым массивом без переданного элемента
 const handleDelete = (id) => {
   todos.value = todos.value.filter(el => el.id !== id)
 }
+//Переключаем состояние переданного элемента
+// с невыполненное на выполненное, с выполненное на невыполненное
 const handleChoose = (id) => {
   const todo = todos.value.find(el => el.id === id)
   todo.isActive = !todo.isActive

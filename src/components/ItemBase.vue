@@ -1,9 +1,7 @@
 <template>
   <div class="list-item" @click="handleClick(props.todo.id)">
     <div class="list-info">
-
-      {{ props.todo.isActive }}
-      <input :class="{ 'item-round': props.todo.isActive }" type="checkbox" />
+      <input :class="props.todo.isActive ? 'item-active' : 'item-round'" type="checkbox" />
       <span>{{ props.todo.title }}</span>
     </div>
     <img @click="handleDelete(props.todo.id)" class="item-img" src="../assets/trash.svg" alt="trash" />
