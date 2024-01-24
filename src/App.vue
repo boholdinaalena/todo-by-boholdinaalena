@@ -73,4 +73,86 @@ const handleChoose = (id) => {
 </script>
 
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+
+.container {
+  max-width: 736px;
+  margin: 0 auto;
+}
+
+.header {
+  background: #0d0d0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #5e60ce;
+  font-size: 40px;
+  font-weight: 900;
+  padding: 72px 0;
+}
+
+.header-logo {
+  color: #4ea8de;
+}
+
+.body {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  transform: translateY(-50%);
+}
+
+.body-input {
+  flex: 1;
+  background: #262626;
+  padding: 16px;
+  color: #ffffff;
+  border-radius: 10px;
+  border: none;
+
+  &::placeholder {
+    color: #808080;
+  }
+}
+
+.body-btn {
+  background: #1e6f9f;
+  border-radius: 8px;
+  padding: 16px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 140%;
+  cursor: pointer;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  color: #5e60ce;
+}
+
+.todo-count,
+.todo-amount {
+  display: flex;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.todo-count {
+  color: #4ea8de;
+}
+
+.todo-num {
+  color: #d9d9d9;
+  padding: 2px 8px;
+  background: #333;
+  border-radius: 999px;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+</style>
