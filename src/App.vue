@@ -45,5 +45,9 @@ import { RouterView, RouterLink } from "vue-router"
 .header-logo {
   color: #4ea8de;
 }
+.container {
+  max-width: 736px;
+  margin: 0 auto;
+}
 
 </style>

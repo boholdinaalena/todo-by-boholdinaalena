@@ -20,6 +20,18 @@ input {
 button {
     border: none;
 }
+
+.container {
+  max-width: 736px;
+  margin: 0 auto;
+}
+
+.body {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  transform: translateY(-50%);
+}
 @import url('https://fonts.googleapis.com/css2 ?family=Inter&display=swap');
 
 
