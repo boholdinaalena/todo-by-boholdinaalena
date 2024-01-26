@@ -34,6 +34,28 @@ button {
 }
 @import url('https://fonts.googleapis.com/css2 ?family=Inter&display=swap');
 
+.body-input {
+  flex: 1;
+  background: #262626;
+  padding: 16px;
+  color: #ffffff;
+  border-radius: 10px;
+  border: none;
+
+  &::placeholder {
+    color: #808080;
+  }
+}
+
+.body-btn {
+  background: #1e6f9f;
+  border-radius: 8px;
+  padding: 16px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 140%;
+  cursor: pointer;
+}
 
 
 @media (max-width: 860px) {
@@ -67,6 +89,9 @@ button {
     align-items: center;
     flex-direction: column;
     row-gap: 5px;
+  }
+  .nav-link {
+    font-size: 14pt;
   }
 
 }

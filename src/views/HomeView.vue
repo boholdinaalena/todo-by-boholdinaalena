@@ -107,28 +107,6 @@ const handleChoose = (id) => {
     transform: translateX(200px);
   }
 }
-.body-input {
-  flex: 1;
-  background: #262626;
-  padding: 16px;
-  color: #ffffff;
-  border-radius: 10px;
-  border: none;
-
-  &::placeholder {
-    color: #808080;
-  }
-}
-
-.body-btn {
-  background: #1e6f9f;
-  border-radius: 8px;
-  padding: 16px;
-  color: #fff;
-  font-weight: 700;
-  line-height: 140%;
-  cursor: pointer;
-}
 
 .todo-header {
   display: flex;
