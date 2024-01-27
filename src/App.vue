@@ -3,7 +3,7 @@
     <div class="header">
       <div class="header-nav">
         <RouterLink class="nav-link" to="/">Задачи</RouterLink>|
-        <RouterLink class="nav-link" to="/people">Сотрудники</RouterLink>
+        <RouterLink class="nav-link" to="/people">Кто-то</RouterLink>
       </div>
       <img class="header-img" src="./assets/rocket.svg" />
       <div><span class="header-logo">TO</span>DO</div>
