@@ -3,18 +3,31 @@
     <div class="header">
       <div class="header-nav">
         <RouterLink class="nav-link" to="/">Задачи</RouterLink>|
-        <RouterLink class="nav-link" to="/people">Кто-то</RouterLink>
+        <RouterLink class="nav-link" to="/people">Пользователь</RouterLink>
       </div>
       <img class="header-img" src="./assets/rocket.svg" />
       <div><span class="header-logo">TO</span>DO</div>
     </div>
-    <RouterView/>
+    <RouterView v-slot="{ Component, route }">
+      <transition
+        :enter-active-class="route.meta.enterClass"
+        :leave-active-class="route.meta.leaveClass"
+        mode="out-in"
+      >
+        <component :is="Component" />
+      </transition>
+    </RouterView>
   </div>
 </template>
 <script setup>
 import { RouterView, RouterLink } from "vue-router"
+import HomeView from "./views/HomeView.vue";
+import PeopleView from "./views/PeopleView.vue";
 </script>
 <style lang="scss" scoped>
+.animate__animated {
+  --animate-duration: 0.6s;
+}
 .header {
   background: #0d0d0d;
   display: flex;

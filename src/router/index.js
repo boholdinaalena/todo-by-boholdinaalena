@@ -9,11 +9,19 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeViews,
+      meta: {
+        enterClass: "animate__animated animate__fadeInLeft",
+        leaveClass: "animate__animated animate__fadeOutRight"
+      }
     },
     {
       path: "/people",
       name: "people",
       component: PeopleView,
+      meta: {
+        enterClass: "animate__animated animate__fadeInRight",
+        leaveClass: "animate__animated animate__fadeOutLeft"
+      }
     },
   ],
 });

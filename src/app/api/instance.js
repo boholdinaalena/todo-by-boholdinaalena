@@ -1,11 +1,10 @@
 import axios from "axios";
 
-export default axios.create({
-  method: 'post',
-  url: 'https://jsonplaceholder.typicode.com/posts',
-  data: {
-    title: 'Article title',
-    body:  'Article body content',
-    userId: 1,
-  }
-})
+const instance = axios.create({
+    baseURL: 'https://jsonplaceholder.typicode.com/',
+    timeout: 1000,
+    headers: {'X-Custom-Header': 'foobar'},
+});
+
+export default instance;
+
