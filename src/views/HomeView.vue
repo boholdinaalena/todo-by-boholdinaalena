@@ -50,6 +50,9 @@ const todos = ref([]);
 
 const getStorage = () => {
   const storageTodos = JSON.parse(localStorage.getItem("todos"));
+  if (!setStorage) {
+    todos.value = []
+  }
   console.log(storageTodos);
   todos.value = storageTodos;
 };
