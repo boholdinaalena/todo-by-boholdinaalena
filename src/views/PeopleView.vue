@@ -41,6 +41,7 @@ const loadUser = async () => {
 };
 
 onMounted(() => loadUser());
+
 </script>
 
 <style scopped lang="scss">

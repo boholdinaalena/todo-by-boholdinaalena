@@ -41,11 +41,35 @@
 </template>
 
 <script setup>
+import { functions } from "@vueuse/core/metadata.mjs";
 import InputBase from "../components/InputBase.vue";
 import ItemBase from "../components/ItemBase.vue";
-import { ref, computed } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 
 const todos = ref([]);
+
+const getStorage = () => {
+  const storageTodos = JSON.parse(localStorage.getItem("todos"));
+  console.log(storageTodos);
+  todos.value = storageTodos;
+};
+
+const setStorage = (val) => {
+  localStorage.setItem("todos", JSON.stringify(val));
+};
+
+onMounted(() => {
+  getStorage();
+});
+
+watch(
+  todos,
+  (newVal) => {
+    setStorage(newVal);
+  },
+  { deep: true }
+);
+
 const title = ref("");
 
 const handleClick = () => {
@@ -87,7 +111,7 @@ const handleChoose = (id) => {
   animation: out 0.6s ease;
 }
 @keyframes enter {
-  0%  {
+  0% {
     opacity: 0;
     transform: translateX(-200px);
   }
@@ -98,7 +122,7 @@ const handleChoose = (id) => {
 }
 
 @keyframes out {
-  0%  {
+  0% {
     opacity: 1;
     transform: translateX(0px);
   }
